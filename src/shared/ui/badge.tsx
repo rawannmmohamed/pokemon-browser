@@ -1,7 +1,7 @@
-import { cva, type VariantProps } from 'class-variance-authority'
-import type { HTMLAttributes } from 'react'
+import { cva } from 'class-variance-authority'
 
 import { cn } from '@/shared/lib/utils'
+import type { BadgeProps } from '@/shared/types/ui.types'
 
 const badgeVariants = cva('inline-flex items-center rounded-full px-2 py-0.5 text-xs font-bold', {
   variants: {
@@ -13,8 +13,6 @@ const badgeVariants = cva('inline-flex items-center rounded-full px-2 py-0.5 tex
     variant: 'default',
   },
 })
-
-type BadgeProps = HTMLAttributes<HTMLSpanElement> & VariantProps<typeof badgeVariants>
 
 function Badge({ className, variant, ...props }: BadgeProps) {
   return <span className={cn(badgeVariants({ variant }), className)} {...props} />

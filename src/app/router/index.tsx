@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import { pokemonRoutes } from '@/features/pokemon/routes'
+import { LoadingState } from '@/shared/components/LoadingState'
 
 const NotFoundPage = lazy(() => import('@/shared/components/NotFoundPage'))
 
@@ -13,7 +14,7 @@ const router = createBrowserRouter([
 function RouteFallback() {
   return (
     <main className="grid min-h-screen place-items-center bg-slate-50 p-6 text-center">
-      <p className="text-sm font-semibold text-slate-500">Loading Pokedex...</p>
+      <LoadingState message="Loading Pokedex..." />
     </main>
   )
 }

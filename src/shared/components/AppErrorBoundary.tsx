@@ -1,7 +1,6 @@
-import { Component, type ErrorInfo, type ReactNode } from 'react'
+import { Component, type ErrorInfo } from 'react'
 
-type AppErrorBoundaryProps = { children: ReactNode }
-type AppErrorBoundaryState = { hasError: boolean }
+import type { AppErrorBoundaryProps, AppErrorBoundaryState } from '@/shared/types/components.types'
 
 export class AppErrorBoundary extends Component<AppErrorBoundaryProps, AppErrorBoundaryState> {
   public state: AppErrorBoundaryState = { hasError: false }
