@@ -9,3 +9,48 @@ export type PokemonListResponse = {
   previous: string | null
   results: PokemonListItem[]
 }
+
+export type PokemonSprite = {
+  front_default: string | null
+  other?: {
+    'official-artwork'?: {
+      front_default: string | null
+    }
+  }
+}
+
+export type PokemonTypeSlot = {
+  slot: number
+  type: {
+    name: string
+    url: string
+  }
+}
+
+export type PokemonStat = {
+  base_stat: number
+  stat: {
+    name: string
+    url: string
+  }
+}
+
+export type PokemonAbilitySlot = {
+  ability: {
+    name: string
+    url: string
+  }
+  is_hidden: boolean
+  slot: number
+}
+
+export type PokemonDetails = {
+  id: number
+  name: string
+  height: number
+  weight: number
+  sprites: PokemonSprite
+  types: PokemonTypeSlot[]
+  stats: PokemonStat[]
+  abilities: PokemonAbilitySlot[]
+}
