@@ -10,7 +10,7 @@ export function ErrorState({ onRetry, isRetrying }: ErrorStateProps) {
         <RefreshCw size={20} />
       </div>
       <h2 className="mt-4 text-lg font-extrabold text-slate-900">Something went wrong</h2>
-      <p className="mt-2 text-sm leading-6 text-slate-500">
+      <p className="mt-2 text-sm font-normal leading-6 text-slate-600">
         We couldn&apos;t load the Pokemon right now. Please check your connection and try again.
       </p>
       <Button className="mt-5 gap-2" onClick={onRetry} disabled={isRetrying}>
