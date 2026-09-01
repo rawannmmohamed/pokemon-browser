@@ -24,7 +24,7 @@ body {
   margin: 0;
 }
 
-@keyframes izam-fade-up {
+@keyframes app-fade-up {
   from {
     opacity: 0;
     transform: translateY(8px);
@@ -36,12 +36,34 @@ body {
   }
 }
 
+@keyframes pokemon-detail-image-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pokemon-stat-fill {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
 .motion-fade-up {
-  animation: izam-fade-up 400ms ease-out both;
+  animation: app-fade-up 400ms ease-out both;
 }
 
 .motion-card {
-  animation: izam-fade-up 350ms ease-out both;
+  animation: app-fade-up 350ms ease-out both;
   transition:
     transform 180ms ease-out,
     box-shadow 180ms ease-out,
@@ -49,9 +71,27 @@ body {
     border-color 180ms ease-out;
 }
 
+.pokemon-detail-image-motion {
+  animation: pokemon-detail-image-in 520ms cubic-bezier(0.22, 1, 0.36, 1) 120ms both;
+}
+
+.pokemon-detail-section-motion,
+.pokemon-stat-row-motion {
+  animation: app-fade-up 400ms ease-out both;
+}
+
+.pokemon-stat-fill-motion {
+  transform-origin: left center;
+  animation: pokemon-stat-fill 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .motion-fade-up,
-  .motion-card {
+  .motion-card,
+  .pokemon-detail-image-motion,
+  .pokemon-detail-section-motion,
+  .pokemon-stat-row-motion,
+  .pokemon-stat-fill-motion {
     animation: none;
     transition: none;
   }

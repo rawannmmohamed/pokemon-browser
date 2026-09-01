@@ -49,6 +49,7 @@ export type PokemonDetails = {
   name: string
   height: number
   weight: number
+  base_experience: number
   sprites: PokemonSprite
   types: PokemonTypeSlot[]
   stats: PokemonStat[]
