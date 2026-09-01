@@ -1,4 +1,5 @@
 import type { PokemonGridProps } from '@/features/pokemon/types/component.types'
+import { EmptyState } from '@/shared/components/EmptyState'
 import { LoadingState } from '@/shared/components/LoadingState'
 import { Skeleton } from '@/shared/ui/skeleton'
 
@@ -22,6 +23,10 @@ export function PokemonGrid({ items, isLoading = false }: PokemonGridProps) {
         </div>
       </div>
     )
+  }
+
+  if (items.length === 0) {
+    return <EmptyState />
   }
 
   return (

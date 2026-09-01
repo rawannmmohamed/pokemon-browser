@@ -16,3 +16,8 @@ export type ErrorStateProps = {
 export type LoadingStateProps = {
   message?: string
 }
+
+export type EmptyStateProps = {
+  title?: string
+  message?: string
+}
