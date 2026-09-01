@@ -11,6 +11,8 @@ The application lets users browse Pokemon, switch between pagination and load-mo
 - Load-more mode powered by infinite queries.
 - Pokemon details page with image, type badge, height, weight, base stats, abilities, and base experience.
 - Loading, error, retry, and empty states.
+- Lazy-loaded list images for better initial page performance.
+- Lazy-loaded routes for list, detail, and not-found screens.
 - Subtle UI animation for cards, detail sections, and animated base-stat bars.
 - Accessible controls, focus states, reduced-motion support, and semantic page states.
 
@@ -23,6 +25,7 @@ The application lets users browse Pokemon, switch between pagination and load-mo
 - TanStack React Query
 - Axios
 - Tailwind CSS
+- shadcn-style local UI components
 - Lucide React
 
 ## Getting Started
@@ -87,10 +90,14 @@ src/
 
 - Data fetching is handled with React Query and Axios.
 - Query functions receive the React Query `signal` and pass it to Axios, allowing requests to be cancelled when they are no longer needed.
+- Lazy-loaded routes for list, detail, and not-found screens.
 - List data supports both traditional pagination and infinite loading.
 - Detail data is fetched by route param, so `/pokemon/:id` renders the selected Pokemon profile.
+- Routes are split with React `lazy` and `Suspense` so page bundles load only when needed.
+- List images use native lazy loading to reduce unnecessary network work during the initial page load.
 - UI states are handled explicitly: loading indicators, user-friendly errors, retry actions, and empty states.
 - Motion is intentionally light and respects `prefers-reduced-motion`.
+- Shared UI primitives follow a shadcn-style setup with local components, `cva`, `clsx`, and `tailwind-merge`.
 - The detail page is split into focused components for header, overview, stats, abilities, and experience.
 
 ## Assessment Coverage
