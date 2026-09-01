@@ -23,3 +23,36 @@ body {
   min-height: 100vh;
   margin: 0;
 }
+
+@keyframes izam-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.motion-fade-up {
+  animation: izam-fade-up 400ms ease-out both;
+}
+
+.motion-card {
+  animation: izam-fade-up 350ms ease-out both;
+  transition:
+    transform 180ms ease-out,
+    box-shadow 180ms ease-out,
+    background-color 180ms ease-out,
+    border-color 180ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-fade-up,
+  .motion-card {
+    animation: none;
+    transition: none;
+  }
+}
