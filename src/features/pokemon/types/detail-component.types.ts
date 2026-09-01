@@ -14,7 +14,7 @@ export type PokemonDetailMetricProps = {
 
 export type PokemonDetailOverviewProps = {
   pokemon: PokemonDetails
-  artwork: string
+  artwork?: string
 }
 
 export type PokemonDetailStatsProps = {
@@ -26,5 +26,5 @@ export type PokemonDetailAbilitiesProps = {
 }
 
 export type PokemonDetailExperienceProps = {
-  baseExperience: number
+  baseExperience?: number | null
 }
