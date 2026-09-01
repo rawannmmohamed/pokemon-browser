@@ -1,32 +1,104 @@
-# React + TypeScript + Vite
+# Pokemon Browser
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A responsive Pokemon browser built with React, TypeScript, Vite, React Query, Axios, Tailwind CSS, and React Router.
 
-Currently, two official plugins are available:
+The application lets users browse Pokemon, switch between pagination and load-more list modes, and open a detailed Pokemon profile screen that follows the provided assessment reference design.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Pokemon list with responsive cards and official artwork.
+- Pagination mode with page controls.
+- Load-more mode powered by infinite queries.
+- Pokemon details page with image, type badge, height, weight, base stats, abilities, and base experience.
+- Loading, error, retry, and empty states.
+- Subtle UI animation for cards, detail sections, and animated base-stat bars.
+- Accessible controls, focus states, reduced-motion support, and semantic page states.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the Oxlint configuration
+- React 19
+- TypeScript
+- Vite
+- React Router
+- TanStack React Query
+- Axios
+- Tailwind CSS
+- Lucide React
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## Getting Started
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+Install dependencies:
+
+```bash
+npm install
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Run the development server:
+
+```bash
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+Run linting:
+
+```bash
+npm run lint
+```
+
+Preview the production build:
+
+```bash
+npm run preview
+```
+
+## Project Structure
+
+The project uses a feature-based structure while keeping shared application utilities separate.
+
+```text
+src/
+  app/
+    providers/
+    router/
+  features/
+    pokemon/
+      api/
+      components/
+      constants/
+      hooks/
+      pages/
+      routes/
+      types/
+      utils/
+  shared/
+    components/
+    lib/
+    types/
+    ui/
+```
+
+## Implementation Notes
+
+- Data fetching is handled with React Query and Axios.
+- Query functions receive the React Query `signal` and pass it to Axios, allowing requests to be cancelled when they are no longer needed.
+- List data supports both traditional pagination and infinite loading.
+- Detail data is fetched by route param, so `/pokemon/:id` renders the selected Pokemon profile.
+- UI states are handled explicitly: loading indicators, user-friendly errors, retry actions, and empty states.
+- Motion is intentionally light and respects `prefers-reduced-motion`.
+- The detail page is split into focused components for header, overview, stats, abilities, and experience.
+
+## Assessment Coverage
+
+- Uses a modern React setup with TypeScript.
+- Fetches data from the PokeAPI.
+- Implements Pokemon listing and detail views.
+- Includes pagination and load-more behavior.
+- Handles loading, error, retry, and empty states.
+- Follows the supplied visual references closely, including the detail screen layout, typography, colors, spacing, and stat bars.
+- Adds polished interactions and animation as an additional UX improvement.
